@@ -14,7 +14,7 @@ public:
   // accessors
   std::string tz_name() const { return m_tz_name; }
   struct tm local_time() const { return m_local_time; }
-  bool dst_active() const { return m_local_time.tm_isdst; }
+  bool dst_active() const;
 
   // mutators
   void set_tz_name( const std::string& tz ) { m_tz_name = tz; }

@@ -47,6 +47,16 @@ void tz::restore_timezone()
   tzset();
 }
 
+bool tz::dst_active() const
+{
+  if ( m_local_time.tm_isdst > 0 )
+    return true;
+  else if ( m_local_time.tm_isdst == 0 )
+    return false;
+  else // < 0: unknown
+    return false;
+}
+
 //-----------------------------------------------------------------------------
 void tz::now()
 {
