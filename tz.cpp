@@ -1,5 +1,6 @@
 #include <tz.h>
 
+//-----------------------------------------------------------------------------
 tz::tz():
   m_local_secs(0),
   m_saved_old_tz_name(0)
@@ -16,6 +17,7 @@ tz::tz( const std::string& tz_name ):
   now();
 }
 
+//-----------------------------------------------------------------------------
 void tz::clear()
 {
   m_tz_name.clear();
@@ -24,6 +26,7 @@ void tz::clear()
   m_saved_old_tz_name = 0;
 }
 
+//-----------------------------------------------------------------------------
 void tz::switch_timezone()
 {
   // Save old time zone.
@@ -34,6 +37,7 @@ void tz::switch_timezone()
   tzset();
 }
 
+//-----------------------------------------------------------------------------
 void tz::restore_timezone()
 {
   if ( m_saved_old_tz_name )
@@ -43,6 +47,7 @@ void tz::restore_timezone()
   tzset();
 }
 
+//-----------------------------------------------------------------------------
 void tz::now()
 {
   time_t current_secs = time(NULL);
