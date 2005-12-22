@@ -5,7 +5,9 @@ using namespace std;
 
 int main()
 {
-  tz date( "Australia/Southern" );
+  //tz date( "Australia/Southern" );
+  tz date( "US/Eastern" );
+  //tz date( "US/Eastern" );
 
   struct tm t = date.local_time();
 

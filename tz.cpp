@@ -61,6 +61,8 @@ bool tz::dst_active() const
 void tz::now()
 {
   time_t current_secs = time(NULL);
+  m_local_time = *gmtime( &current_secs );
+  time_t utc_secs = mktime( &m_local_time );
 
   switch_timezone();
 
