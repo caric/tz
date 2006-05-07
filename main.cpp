@@ -10,7 +10,7 @@ void tester( const char* const tz_str )
 
   cout << tz_str << ' ';
   cout << asctime(&t);
-  cout << date.dst_active() << endl;
+  cout << "dst active: " << (date.dst_active()?"Yes":"No") << endl;
 }
 
 int main()
