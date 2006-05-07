@@ -25,6 +25,7 @@ int main()
   tester( "Europe/London" );
   tester( "Europe/Paris" );
   tester( "Asia/Shanghai" );
+  tester( "Asia/Aden" );
 
   return 0;
 }
