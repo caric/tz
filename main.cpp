@@ -18,7 +18,13 @@ int main()
   tester( "Australia/South" );
   tester( "Australia/North" );
   tester( "Australia/Sydney" );
-  tester( "US/Eastern" );
+  tester( "America/New_York" );
+  tester( "America/Chicago" );
+  tester( "America/Denver" );
+  tester( "America/Los_Angeles" );
+  tester( "Europe/London" );
+  tester( "Europe/Paris" );
+  tester( "Asia/Shanghai" );
 
   return 0;
 }
