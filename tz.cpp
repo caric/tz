@@ -34,7 +34,7 @@ void tz::switch_timezone()
   char *m_saved_old_tz_name = getenv("TZ");
 
   // Switch to the specified time zone.
-  setenv( "TZ", m_tz_name.c_str(), 1 );
+  setenv( "TZ", (":" + m_tz_name).c_str(), 1 );
   tzset();
 }
 
