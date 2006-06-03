@@ -2,14 +2,14 @@
 
 //-----------------------------------------------------------------------------
 tz::tz():
-  m_local_secs(0),
+  m_gmt_secs(0),
   m_saved_old_tz_name(0)
 {
   clear();
 }
 
 tz::tz( const std::string& tz_name ):
-  m_local_secs(0),
+  m_gmt_secs(0),
   m_saved_old_tz_name(0)
 {
   clear();
@@ -23,7 +23,7 @@ void tz::clear()
   m_tz_name.clear();
   memset( (void*)&m_local_time, 0, sizeof(struct tm) );
   m_local_time.tm_isdst = -1;
-  m_local_secs = 0;
+  m_gmt_secs = 0;
   m_saved_old_tz_name = 0;
 }
 
@@ -68,7 +68,30 @@ void tz::now()
   // convert from utc to localtime.
   m_local_time = *localtime( &current_secs );
   m_local_time.tm_isdst = -1;
-  m_local_secs = mktime( &m_local_time );
+  m_gmt_secs = mktime( &m_local_time );
 
   restore_timezone();
+}
+
+void tz::set_local_time( const struct tm& t )
+{
+  m_local_time = t;
+  m_local_time.tm_isdst = -1;
+  switch_timezone();
+  m_gmt_secs = mktime( &m_local_time );
+  restore_timezone();
+}
+
+//-----------------------------------------------------------------------------
+int tz::time_diff( const std::string& tz_name ) const
+{
+  tz there( tz_name );
+  return time_diff( there );
+}
+
+int tz::time_diff( const tz& there ) const
+{
+  tz temp( there );
+  temp.set_local_time( m_local_time );
+  return m_gmt_secs - temp.m_gmt_secs; // reverse offset.
 }
