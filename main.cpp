@@ -8,9 +8,9 @@ void tester( const char* const tz_str )
   tz date( tz_str );
   struct tm t = date.local_time();
 
-  cout << tz_str << ' ';
+  cout << tz_str << ": \t";
+  cout << "DST active: " << (date.dst_active()?"Yes":" No") << "; ";
   cout << asctime(&t);
-  cout << "dst active: " << (date.dst_active()?"Yes":"No") << endl;
 }
 
 int main()
