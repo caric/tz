@@ -2,6 +2,7 @@
 
 # This should be the target of this Makefile.
 DEST=tz
+CLOCKDEST=wclock
 
 CC=gcc
 CXX=g++
@@ -36,14 +37,21 @@ SRC=	\
 	tz.$(EXT)	\
 	main.$(EXT)	\
 
+CLOCKSRC=	\
+	tz.$(EXT)	\
+	wclock.$(EXT)	\
+
 
 OBJS=	$(subst .$(EXT),.o,$(SRC))
 
-DEPFILES=	$(subst .$(EXT),.d,$(SRC))
+CLOCKOBJS=	$(subst .$(EXT),.o,$(CLOCKSRC))
+
+DEPFILES=	$(subst .$(EXT),.d,$(SRC))	\
+		$(subst .$(EXT),.d,$(CLOCKSRC))
 
 ##########################
 
-all:	$(DEST) $(DEPFILES)
+all:	$(DEST) $(CLOCKDEST) $(DEPFILES)
 	@echo done.
 
 sub:	$(DEST) $(DEPFILES)
@@ -51,6 +59,9 @@ sub:	$(DEST) $(DEPFILES)
 
 $(DEST):	$(OBJS)
 	$(COMP) $(LINKFLAGS) -o $(DEST) $(OBJS) $(LIBS)
+
+$(CLOCKDEST):	$(CLOCKOBJS)
+	$(COMP) $(LINKFLAGS) -o $(CLOCKDEST) $(CLOCKOBJS) $(LIBS)
 
 %.o:	%.$(EXT)
 	$(COMP) $(FLAGS) -c $<

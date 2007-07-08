@@ -12,6 +12,7 @@ public:
   tz();
   tz( const std::string& tz_name );
   tz( const tz& );
+  tz& operator=(const tz&);
   ~tz();
 
   // accessors
@@ -55,9 +56,6 @@ protected:
   void restore_timezone();
 
 private:
-  // make these private until we need them. 
-  // This ensures we won't accidentally get a default implementation.
-  tz& operator=(const tz&);
 
 friend std::ostream& operator<<( std::ostream&, const tz&);
 };

@@ -34,6 +34,22 @@ tz::tz( const tz& other ):
   }
 }
 
+tz& tz::operator=(const tz& other)
+{
+  m_tz_name = other.m_tz_name;
+  m_local_time = other.m_local_time;
+  m_gmt_secs = other.m_gmt_secs;
+  m_saved_old_tz_name = other.m_saved_old_tz_name;
+  m_time_format = 0;
+  if ( other.m_time_format )
+  {
+    m_time_format = new char[ strlen( other.m_time_format ) + 1 ];
+    strncpy( m_time_format, other.m_time_format, strlen( other.m_time_format ) + 1 );
+    m_time_format[ strlen( other.m_time_format ) ] = 0;
+  }
+  return *this;
+}
+
 //-----------------------------------------------------------------------------
 void tz::clear()
 {
