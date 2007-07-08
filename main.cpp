@@ -12,7 +12,7 @@ void tester( const char* const tz_str )
   const int pad = 25;
   cout << setw(pad) << tz_str << ": ";
   //for ( int i = pad; i-strlen(tz_str) > 0; i-- ) cout << ' ';
-  cout << asctime(&t);
+  cout << date << '\n';
   //for ( int i = pad; i > 0; i-- ) cout << ' ';
   cout << setw(pad+2) << " " << "DST active: " << (date.dst_active()?"Yes":" No") << "; ";
   const char* const reference = "America/Phoenix";
