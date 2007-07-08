@@ -2,6 +2,7 @@
 #define __TZ_H___
 
 #include <string>
+#include <iostream>
 
 #include <time.h>
 
@@ -10,15 +11,19 @@ class tz
 public:
   tz();
   tz( const std::string& tz_name );
+  tz( const tz& );
+  ~tz();
 
   // accessors
   std::string tz_name() const { return m_tz_name; }
   struct tm local_time() const { return m_local_time; }
   bool dst_active() const;
+  const char* time_format() const { return m_time_format; }
 
   // mutators
   void set_tz_name( const std::string& tz ) { m_tz_name = tz; }
   void set_local_time( const struct tm& t );
+  void set_time_format( const char* );
 
   // Set this object to the current time.
   // uses the time in the local zone, converts it to UTC,
@@ -42,6 +47,7 @@ protected:
   struct tm m_local_time;
   time_t m_gmt_secs;
   char* m_saved_old_tz_name;
+  char* m_time_format; // for strftime.
 
   void clear();
 
@@ -52,7 +58,10 @@ private:
   // make these private until we need them. 
   // This ensures we won't accidentally get a default implementation.
   tz& operator=(const tz&);
-  //tz( const tz& );
+
+friend std::ostream& operator<<( std::ostream&, const tz&);
 };
+
+std::ostream& operator<<( std::ostream&, const tz&);
 
 #endif //  __TZ_H___

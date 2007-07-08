@@ -3,18 +3,35 @@
 //-----------------------------------------------------------------------------
 tz::tz():
   m_gmt_secs(0),
-  m_saved_old_tz_name(0)
+  m_saved_old_tz_name(0),
+  m_time_format(0)
 {
   clear();
 }
 
 tz::tz( const std::string& tz_name ):
   m_gmt_secs(0),
-  m_saved_old_tz_name(0)
+  m_saved_old_tz_name(0),
+  m_time_format(0)
 {
   clear();
   set_tz_name( tz_name );
   now();
+}
+
+tz::tz( const tz& other ):
+  m_tz_name( other.m_tz_name ),
+  m_local_time( other.m_local_time ),
+  m_gmt_secs( other.m_gmt_secs ),
+  m_saved_old_tz_name( other.m_saved_old_tz_name ),
+  m_time_format(0)
+{
+  if ( other.m_time_format )
+  {
+    m_time_format = new char[ strlen( other.m_time_format ) + 1 ];
+    strncpy( m_time_format, other.m_time_format, strlen( other.m_time_format ) + 1 );
+    m_time_format[ strlen( other.m_time_format ) ] = 0;
+  }
 }
 
 //-----------------------------------------------------------------------------
@@ -25,6 +42,29 @@ void tz::clear()
   m_local_time.tm_isdst = -1;
   m_gmt_secs = 0;
   m_saved_old_tz_name = 0;
+  if ( m_time_format )
+    delete[] m_time_format;
+  m_time_format = new char[40];
+  strcpy( m_time_format, "%a %b %d %k:%M:%S %Z %G" );
+}
+
+//-----------------------------------------------------------------------------
+tz::~tz()
+{
+  clear();
+  delete[] m_time_format;
+  m_time_format = 0;
+}
+
+//-----------------------------------------------------------------------------
+std::ostream& operator<<( std::ostream& os, const tz& the_tz )
+{
+  const struct tm t = the_tz.local_time();
+  const int max_length = 128;
+  char buf[max_length];
+  size_t length = strftime( buf, max_length, the_tz.time_format(), &(the_tz.local_time()) );
+  os << buf;
+  return os;
 }
 
 //-----------------------------------------------------------------------------
@@ -48,6 +88,7 @@ void tz::restore_timezone()
   tzset();
 }
 
+//-----------------------------------------------------------------------------
 bool tz::dst_active() const
 {
   if ( m_local_time.tm_isdst > 0 )
@@ -73,6 +114,18 @@ void tz::now()
   restore_timezone();
 }
 
+//-----------------------------------------------------------------------------
+void tz::set_time_format( const char* f )
+{
+  if ( m_time_format )
+    delete[] m_time_format;
+  const int max_length = 128;
+  m_time_format = new char[ max_length ];
+  strncpy( m_time_format, f, max_length );
+  m_time_format[max_length-1] = 0;
+}
+
+//-----------------------------------------------------------------------------
 void tz::set_local_time( const struct tm& t )
 {
   m_local_time = t;
