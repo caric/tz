@@ -23,20 +23,11 @@ void tester( const char* const tz_str )
 
 int main()
 {
+  tester( "America/Los_Angeles" );
+  tester( "America/Chicago" );
+  tester( "America/New_York" );
   tester( "Europe/London" );
   tester( "Asia/Shanghai" );
-  tester( "America/Los_Angeles" );
-  tester( "Asia/Kabul" );
-  tester( "America/Chicago" );
-  tester( "Africa/Cairo" );
-  tester( "Australia/South" );
-  tester( "Australia/North" );
-  tester( "Australia/Sydney" );
-  tester( "America/New_York" );
-  tester( "America/Denver" );
-  tester( "Europe/Paris" );
-  tester( "Asia/Aden" );
-  tester( "Pacific/Honolulu" );
 
   return 0;
 }
