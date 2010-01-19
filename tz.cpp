@@ -134,6 +134,14 @@ void tz::now()
 }
 
 //-----------------------------------------------------------------------------
+struct tm tz::convert_from_there_to_here() const
+{
+  // convert from utc to localtime.
+  struct tm local = *localtime( &m_gmt_secs );
+  return local;
+}
+
+//-----------------------------------------------------------------------------
 void tz::set_time_format( const char* f )
 {
   if ( m_time_format )

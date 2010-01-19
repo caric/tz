@@ -3,6 +3,7 @@
 # This should be the target of this Makefile.
 DEST=tz
 CLOCKDEST=wclock
+WHENDEST=when
 
 CC=gcc
 CXX=g++
@@ -41,17 +42,24 @@ CLOCKSRC=	\
 	tz.$(EXT)	\
 	wclock.$(EXT)	\
 
+WHENSRC=	\
+	tz.$(EXT)	\
+	when.$(EXT)	\
+
 
 OBJS=	$(subst .$(EXT),.o,$(SRC))
 
 CLOCKOBJS=	$(subst .$(EXT),.o,$(CLOCKSRC))
 
+WHENOBJS=	$(subst .$(EXT),.o,$(WHENSRC))
+
 DEPFILES=	$(subst .$(EXT),.d,$(SRC))	\
-		$(subst .$(EXT),.d,$(CLOCKSRC))
+		$(subst .$(EXT),.d,$(CLOCKSRC))	\
+		$(subst .$(EXT),.d,$(WHENSRC))	\
 
 ##########################
 
-all:	$(DEST) $(CLOCKDEST) $(DEPFILES)
+all:	$(DEST) $(CLOCKDEST) $(WHENDEST) $(DEPFILES)
 	@echo done.
 
 sub:	$(DEST) $(DEPFILES)
@@ -63,6 +71,9 @@ $(DEST):	$(OBJS)
 $(CLOCKDEST):	$(CLOCKOBJS)
 	$(COMP) $(LINKFLAGS) -o $(CLOCKDEST) $(CLOCKOBJS) $(LIBS)
 
+$(WHENDEST):	$(WHENOBJS)
+	$(COMP) $(LINKFLAGS) -o $(WHENDEST) $(WHENOBJS) $(LIBS)
+
 %.o:	%.$(EXT)
 	$(COMP) $(FLAGS) -c $<
 
@@ -72,7 +83,7 @@ $(CLOCKDEST):	$(CLOCKOBJS)
 
 clean:
 	rm -f *.o 
-	rm -f $(DEST)
+	rm -f $(DEST) $(CLOCKDEST) $(WHENDEST)
 	rm -f $(DEPFILES)
 
 include $(DEPFILES)

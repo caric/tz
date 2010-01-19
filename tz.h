@@ -20,6 +20,7 @@ public:
   struct tm local_time() const { return m_local_time; }
   bool dst_active() const;
   const char* time_format() const { return m_time_format; }
+  struct tm convert_from_there_to_here() const;
 
   // mutators
   void set_tz_name( const std::string& tz ) { m_tz_name = tz; }
