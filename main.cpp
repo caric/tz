@@ -23,12 +23,14 @@ void tester( const char* const tz_str )
 
 int main()
 {
+  tester( "Asia/Tokyo" );
+  tester( "Pacific/Honolulu" );
+  tester( "Asia/Kabul" );
   tester( "America/Los_Angeles" );
   tester( "America/Chicago" );
   tester( "America/New_York" );
   tester( "Europe/London" );
   tester( "Australia/Melbourne" );
-  tester( "Asia/Tokyo" );
   tester( "GMT" );
 
   return 0;
