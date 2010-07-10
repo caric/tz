@@ -11,8 +11,8 @@ using namespace std;
 void die( const char* const msg )
 {
   cerr << msg << endl << endl;
-  cerr << "useage: when day(0-6, sunday = 0) time" << endl;
-  cerr << "example: when 0 15:47" << endl;
+  cerr << "useage: when day(sun, mon, etc.) time" << endl;
+  cerr << "example: when fri 15:47" << endl;
   exit(-1);
 }
 
