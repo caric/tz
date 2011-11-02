@@ -27,7 +27,8 @@ int main()
   tester( "America/Chicago" );
   tester( "America/New_York" );
   tester( "Europe/London" );
-  tester( "Asia/Kolkata" );
+  tester( "Asia/Shanghai" );
+  tester( "Australia/Sydney" );
   tester( "GMT" );
 
   return 0;
