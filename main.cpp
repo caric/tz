@@ -29,7 +29,9 @@ int main()
   tester( "Europe/London" );
   tester( "Asia/Shanghai" );
   tester( "Australia/Sydney" );
+  tester( "Asia/Calcutta" );
   tester( "GMT" );
+  tester( "UTC" );
 
   return 0;
 }
