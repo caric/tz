@@ -7,7 +7,7 @@ WHENDEST=when
 
 CC=gcc
 CXX=g++
-CXXFLAGS=-g -I.
+CXXFLAGS=-g -I. -fpermissive
 CFLAGS=
 AR=ar
 ARFLAGS=-cr
