@@ -25,23 +25,24 @@ void convert( const char*const label, tz &there, int year, int mon, int mday, in
   struct tm local = here.convert_from_there_to_here();
   const char* const reference = "America/Phoenix";
   tz ref( reference );
-  cout << "here will be: " << asctime(&local);
+  cout << "in " << reference << " time will be: " << asctime(&local);
   cout << " time difference (hours) from " << reference << ": " << setw(5) << (ref.time_diff( here )/3600.0) << "\n" << endl;
 }
 
 void calculate_flight(
+    const char* label_start,
     const char* const start_tz, int start_year, int start_mon, int start_mday, int start_hour, int start_min,
+    const char* label_end,
     const char* const end_tz, int end_year, int end_mon, int end_mday, int end_hour, int end_min,
     const char* const local_time_zone
 ) {
   tz start( start_tz );
-  convert( "takeoff", start, start_year, start_mon, start_mday, start_hour, start_min );
+  convert( label_start, start, start_year, start_mon, start_mday, start_hour, start_min );
 
   tz end( end_tz );
-  convert( "land", end, end_year, end_mon, end_mday, end_hour, end_min );
+  convert( label_end, end, end_year, end_mon, end_mday, end_hour, end_min );
 
-  cout << " hours from takeoff in " << start.tz_name() << " to landing in " << end.tz_name() << ": " << setw(5) << (float)(end.duration( start )/3600.0) << "\n" << endl;
-
+  cout << " hours from " << label_start << " in " << start.tz_name() << " to " << label_end << " in " << end.tz_name() << ": " << setw(5) << (float)(end.duration( start )/3600.0) << "\n" << endl;
 }
 
 int main()
@@ -80,16 +81,34 @@ Requested Seats: 	23E, 24E
 
 Total Travel Time: 34 hrs 19 mins 
 */
-  calculate_flight( "Asia/Muscat", 2013, 7, 8, 23, 35,
-          "Europe/Zurich", 2013, 7, 9, 6, 20,
+  // fly from oman to zurich
+  calculate_flight(
+          "takeoff", "Asia/Muscat", 2013, 7, 8, 23, 35,
+          "land", "Europe/Zurich", 2013, 7, 9, 6, 20,
           "America/Phoenix"
   );
-  calculate_flight( "Europe/Zurich", 2013, 7, 9, 12, 55,
-          "America/Chicago", 2013, 7, 9, 15, 40,
+  //wait in zurich
+  calculate_flight(
+          "land", "Europe/Zurich", 2013, 7, 9, 6, 20,
+          "takeoff", "Europe/Zurich", 2013, 7, 9, 12, 55,
           "America/Phoenix"
   );
-  calculate_flight( "America/Chicago", 2013, 7, 9, 21, 5,
-          "America/Phoenix", 2013, 7, 9, 22, 54,
+  // fly from zurich to chicago
+  calculate_flight(
+          "takeoff", "Europe/Zurich", 2013, 7, 9, 12, 55,
+          "land", "America/Chicago", 2013, 7, 9, 15, 40,
+          "America/Phoenix"
+  );
+  // wait in chicago
+  calculate_flight(
+          "land", "America/Chicago", 2013, 7, 9, 15, 40,
+          "takeoff", "America/Chicago", 2013, 7, 9, 21, 5,
+          "America/Phoenix"
+  );
+  // fly from chicago to phoenix
+  calculate_flight(
+          "takeoff", "America/Chicago", 2013, 7, 9, 21, 5,
+          "land", "America/Phoenix", 2013, 7, 9, 22, 54,
           "America/Phoenix"
   );
   return 0;
