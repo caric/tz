@@ -21,13 +21,13 @@
 # Travel Time 2 hrs 30 mins
 # 
 
-  # fly from KC To Phoenix
+echo ==== fly from KC To Phoenix ====
   flt \
           "takeoff" "America/Chicago" 2013 7 10 6 5 \
           "land" "America/Phoenix" 2013 7 10 6 50 \
           "America/Phoenix"
 
-  # fly from Phoenix To KC
+echo ==== fly from Phoenix To KC ====
   flt \
           "takeoff" "America/Phoenix" 2013 7 17 18 40 \
           "land" "America/Chicago" 2013 7 17 23 10 \
