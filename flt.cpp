@@ -32,10 +32,12 @@ void convert( const char*const label, tz &there, int year, int mon, int mday, in
 
   tz here(there);
   struct tm local = here.convert_from_there_to_here();
+  cout << "in " << local.tm_zone << " (current local timezone) time will be: " << asctime(&local);
+
   const char* const reference = "America/Phoenix";
   tz ref( reference );
-  cout << "in " << reference << " time will be: " << asctime(&local);
-  cout << " time difference (hours) from " << reference << ": " << setw(5) << (ref.time_diff( here )/3600.0) << "\n" << endl;
+  ref.set_local_time( there_tm ); // Set the reference timezone to the same date we are interested in so daylight savings time is correct.
+  cout << " time difference (hours) from " << reference << " on " << there_tm.tm_year+1900 << '-' << setw(2) << setfill('0') << there_tm.tm_mon+1 << '-' << setw(2) << there_tm.tm_mday <<": " << setw(5) << setfill(' ') << (ref.time_diff( here )/3600.0) << "\n" << endl;
 }
 
 void calculate_flight(
