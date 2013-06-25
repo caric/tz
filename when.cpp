@@ -62,10 +62,10 @@ int main( int argc, char *argv[] )
   // adjust the day of the month.
   int old_day = there_time.tm_wday;
   int day_diff = day - old_day;
-  cout << day_diff << ' ';
+  cout << day_diff << " days; ";
   if ( day_diff <= 0 )
     day_diff = day_diff + 7;
-  cout << day_diff << ' ' << endl;
+  cout << day_diff << " days;" << endl;
 
   there_time.tm_mday += day_diff;
   there_time.tm_isdst = -1;
