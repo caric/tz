@@ -20,7 +20,8 @@ void convert( tz &there, int year, int mon, int mday, int hour, int min )
   struct tm local = there.convert_from_there_to_here();
   const char* const reference = "America/Phoenix";
   tz ref( reference );
-  cout << "here will be: " << asctime(&local) << endl;
+  cout << "here will be: " << asctime(&local);
+  cout << " hours from " << reference << ": " << setw(5) << (ref.time_diff( there )/3600.0) << "\n" << endl;
 }
 
 void tester(
