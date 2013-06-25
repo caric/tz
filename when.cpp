@@ -11,8 +11,11 @@ using namespace std;
 void die( const char* const msg )
 {
   cerr << msg << endl << endl;
-  cerr << "useage: when day(sun, mon, etc.) time" << endl;
-  cerr << "example: when fri 15:47" << endl;
+  cerr << "useage: when tz day(sun, mon, etc.) time" << endl;
+  cerr << "example: when Asia/Muscat fri 15:47" << endl;
+  cerr << "example: when America/Los_Angeles fri 15:47" << endl;
+  cerr << "example: when America/Kentucky/Louisville fri 15:47" << endl;
+  cerr << "example: when America/New_York fri 15:47" << endl;
   exit(-1);
 }
 
@@ -40,19 +43,19 @@ int day_of_the_week( const char *const arg )
 
 int main( int argc, char *argv[] )
 {
-  tz there( "Asia/Tokyo" );
-  struct tm there_time = there.local_time();
-
-  if ( argc < 3 )
+  if ( argc < 4 )
     die( "tell the program the day and time you are interested in" );
+
+  tz there( argv[1] );
+  struct tm there_time = there.local_time();
 
   cout << "Now, there, it's " << there << endl;
 
   ///////////////////////////////////////////////////////////////////
   // process & convert arguments.
-  int day = day_of_the_week( argv[1] );
+  int day = day_of_the_week( argv[2] );
   char *endptr;
-  int hour = strtol(argv[2], &endptr, 10);
+  int hour = strtol(argv[3], &endptr, 10);
   int min = strtol(endptr+1, NULL, 10);
 
   ///////////////////////////////////////////////////////////////////
