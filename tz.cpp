@@ -175,3 +175,7 @@ int tz::time_diff( const tz& there ) const
   temp.set_local_time( m_local_time );
   return m_gmt_secs - temp.m_gmt_secs; // reverse offset.
 }
+int tz::duration( const tz& there ) const
+{
+  return m_gmt_secs - there.m_gmt_secs; // reverse offset.
+}

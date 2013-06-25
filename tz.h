@@ -44,6 +44,10 @@ public:
   int time_diff( const std::string& tz_name ) const;
   int time_diff( const tz& there ) const;
 
+  // calculate the number of seconds difference (at the *this object's stored
+  // time) from the *this to 'there'
+  int duration( const tz& there ) const;
+
 protected:
   std::string m_tz_name;
   struct tm m_local_time;
