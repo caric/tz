@@ -102,32 +102,32 @@ echo ==== fly from zurich to oman ====
 #
 #Total Travel Time: 34 hrs 19 mins 
 
-  # fly from oman to zurich
+echo ==== fly from oman to zurich ====
   flt \
           "takeoff" "Asia/Muscat" 2013 7 8 23 35 \
           "land" "Europe/Zurich" 2013 7 9 6 20 \
           "America/Phoenix"
 
-  #wait in zurich
+echo ==== wait in zurich ====
   flt \
           "land" "Europe/Zurich" 2013 7 9 6 20 \
           "takeoff" "Europe/Zurich" 2013 7 9 12 55 \
           "America/Phoenix"
 
-  # fly from zurich to chicago
+echo ==== fly from zurich to chicago ====
   flt \
           "takeoff" "Europe/Zurich" 2013 7 9 12 55 \
           "land" "America/Chicago" 2013 7 9 15 40 \
           "America/Phoenix"
 
-  # wait in chicago
+echo ==== wait in chicago ====
   flt \
           "land" "America/Chicago" 2013 7 9 15 40 \
           "takeoff" "America/Chicago" 2013 7 9 21 5 \
           "America/Phoenix"
 
 
-  # fly from chicago to phoenix
+echo ==== fly from chicago to phoenix ====
   flt \
           "takeoff" "America/Chicago" 2013 7 9 21 5 \
           "land" "America/Phoenix" 2013 7 9 22 54 \
