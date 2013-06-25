@@ -64,7 +64,7 @@ void tz::clear()
   if ( m_time_format )
     delete[] m_time_format;
   m_time_format = new char[40];
-  strcpy( m_time_format, "%a %b %d %k:%M:%S %Z %G" );
+  strcpy( m_time_format, "%a %b %d %k:%M:%S %G" );
 }
 
 //-----------------------------------------------------------------------------

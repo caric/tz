@@ -15,7 +15,9 @@ void convert( const char*const label, tz &there, int year, int mon, int mday, in
   there_tm.tm_hour = hour;
   there_tm.tm_min = min;
   there_tm.tm_sec = 0;
+  //strcpy( there_tm.tm_zone, there.tz_name().c_str() );
   //there_tm.tm_zone = 0;
+  //there_tm.tm_zone[0] = 0;
   there.set_local_time( there_tm );
 
   cout << label << endl;
