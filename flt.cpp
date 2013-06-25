@@ -4,6 +4,13 @@ using namespace std;
 
 #include <tz.h>
 
+void die( const char* const msg )
+{
+  cerr << msg << endl << endl;
+  cerr << "useage: flt label_start start_tz start_year start_month start_dayofmonth start_hour start_minute label_end end_tz end_year end_month end_dayofmonth end_hour end_minute local_tz" << endl;
+  cerr << "example: flt takeoff Asia/Muscat 2013 7 8 23 35 land Europe/Zurich 2013 7 9 6 20 America/Phoenix" << endl;
+  exit(-1);
+}
 
 void convert( const char*const label, tz &there, int year, int mon, int mday, int hour, int min )
 {
@@ -47,71 +54,43 @@ void calculate_flight(
   cout << " hours from " << label_start << " in " << start.tz_name() << " to " << label_end << " in " << end.tz_name() << ": " << setw(5) << (float)(end.duration( start )/3600.0) << "\n" << endl;
 }
 
-int main()
+int get_number( const char *const str ) {
+  char *endptr;
+  int number = strtol( str, &endptr, 10);
+  if ( endptr == str ) {
+    char msg[512];
+    snprintf( msg, 512, "failed to parse '%s' as a number", str );
+    die( msg );
+  }
+  return number;
+}
+
+int main( int argc, char *argv[] )
 {
-  /*
-  Mon, Jul 8, 2013
-Muscat, (MCT) to Phoenix Sky Harbor International Airport, (PHX)
+  if ( argc < 15 )
+    die( "not enough input" );
 
-Flight: 		United Flight 7685    operated by Swiss Intl Air Lines  (on Airbus A330-300)
-Depart: 		11:35 PM, Muscat, Oman (MCT)
-Arrive: 		06:20 AM, Zurich, Switzerland (ZRH)
+  const char* label_start = argv[1];
+  const char* start_tz = argv[2];
+  int start_year = get_number( argv[3] );
+  int start_month = get_number( argv[4] );
+  int start_mday = get_number( argv[5] );
+  int start_hour = get_number( argv[6] );
+  int start_minute = get_number( argv[7] );
+  const char* label_end = argv[8];
+  const char* end_tz = argv[9];
+  int end_year = get_number( argv[10] );
+  int end_month = get_number( argv[11] );
+  int end_mday = get_number( argv[12] );
+  int end_hour = get_number( argv[13] );
+  int end_minute = get_number( argv[14] );
+  const char* local_tz = argv[15];
 
-
-1 Stop - change planes Dubai, United Arab Emirates (DXB) 
-
-
-1 Stop - change planes in Zurich, (ZRH)
-Connection Time:  6   hrs    35 mins 
-
-
-Flight: 		United Flight 7680    operated by Swiss Intl Air Lines  (on Airbus A330-300)
-Depart: 		12:55 PM, Zurich, Switzerland (ZRH)
-Arrive: 		03:40 PM, Chicago, IL (ORD)
-
-
-
-1 Stop - change planes in Chicago, (ORD)
-Connection Time:  5   hrs    25 mins 
-
-
-Flight: 		United Flight 1245    (on Boeing 737-900)
-Depart: 		09:05 PM, Chicago, IL (ORD)
-Arrive: 		10:54 PM, Next day Phoenix, AZ (PHX)
-
-Requested Seats: 	23E, 24E 
-
-Total Travel Time: 34 hrs 19 mins 
-*/
-  // fly from oman to zurich
   calculate_flight(
-          "takeoff", "Asia/Muscat", 2013, 7, 8, 23, 35,
-          "land", "Europe/Zurich", 2013, 7, 9, 6, 20,
-          "America/Phoenix"
+      label_start, start_tz, start_year, start_month, start_mday, start_hour, start_minute,
+      label_end, end_tz, end_year, end_month, end_mday, end_hour, end_minute,
+      local_tz
   );
-  //wait in zurich
-  calculate_flight(
-          "land", "Europe/Zurich", 2013, 7, 9, 6, 20,
-          "takeoff", "Europe/Zurich", 2013, 7, 9, 12, 55,
-          "America/Phoenix"
-  );
-  // fly from zurich to chicago
-  calculate_flight(
-          "takeoff", "Europe/Zurich", 2013, 7, 9, 12, 55,
-          "land", "America/Chicago", 2013, 7, 9, 15, 40,
-          "America/Phoenix"
-  );
-  // wait in chicago
-  calculate_flight(
-          "land", "America/Chicago", 2013, 7, 9, 15, 40,
-          "takeoff", "America/Chicago", 2013, 7, 9, 21, 5,
-          "America/Phoenix"
-  );
-  // fly from chicago to phoenix
-  calculate_flight(
-          "takeoff", "America/Chicago", 2013, 7, 9, 21, 5,
-          "land", "America/Phoenix", 2013, 7, 9, 22, 54,
-          "America/Phoenix"
-  );
+
   return 0;
 }
