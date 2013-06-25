@@ -4,6 +4,7 @@
 DEST=tz
 CLOCKDEST=wclock
 WHENDEST=when
+FLTDEST=flt
 
 CC=gcc
 CXX=g++
@@ -46,6 +47,9 @@ WHENSRC=	\
 	tz.$(EXT)	\
 	when.$(EXT)	\
 
+FLTSRC=	\
+	tz.$(EXT)	\
+	flt.$(EXT)	\
 
 OBJS=	$(subst .$(EXT),.o,$(SRC))
 
@@ -53,13 +57,16 @@ CLOCKOBJS=	$(subst .$(EXT),.o,$(CLOCKSRC))
 
 WHENOBJS=	$(subst .$(EXT),.o,$(WHENSRC))
 
+FLTOBJS=	$(subst .$(EXT),.o,$(FLTSRC))
+
 DEPFILES=	$(subst .$(EXT),.d,$(SRC))	\
 		$(subst .$(EXT),.d,$(CLOCKSRC))	\
 		$(subst .$(EXT),.d,$(WHENSRC))	\
+		$(subst .$(EXT),.d,$(FLTSRC))	\
 
 ##########################
 
-all:	$(DEST) $(CLOCKDEST) $(WHENDEST) $(DEPFILES)
+all:	$(DEST) $(CLOCKDEST) $(WHENDEST) $(FLTDEST) $(DEPFILES)
 	@echo done.
 
 sub:	$(DEST) $(DEPFILES)
@@ -74,6 +81,9 @@ $(CLOCKDEST):	$(CLOCKOBJS)
 $(WHENDEST):	$(WHENOBJS)
 	$(COMP) $(LINKFLAGS) -o $(WHENDEST) $(WHENOBJS) $(LIBS)
 
+$(FLTDEST):	$(FLTOBJS)
+	$(COMP) $(LINKFLAGS) -o $(FLTDEST) $(FLTOBJS) $(LIBS)
+
 %.o:	%.$(EXT)
 	$(COMP) $(FLAGS) -c $<
 
@@ -83,7 +93,7 @@ $(WHENDEST):	$(WHENOBJS)
 
 clean:
 	rm -f *.o 
-	rm -f $(DEST) $(CLOCKDEST) $(WHENDEST)
+	rm -f $(DEST) $(CLOCKDEST) $(WHENDEST) $(FLTDEST)
 	rm -f $(DEPFILES)
 
 include $(DEPFILES)
