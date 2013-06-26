@@ -9,7 +9,7 @@ void tester( const char* const tz_str )
   tz date( tz_str );
   struct tm t = date.local_time();
 
-  const int pad = 25;
+  const int pad = 27;
   cout << setw(pad) << tz_str << ": ";
   //for ( int i = pad; i-strlen(tz_str) > 0; i-- ) cout << ' ';
   cout << date << '\n';
@@ -23,14 +23,17 @@ void tester( const char* const tz_str )
 
 int main()
 {
+  tester( "Pacific/Honolulu" );
   tester( "America/Los_Angeles" );
   tester( "America/Chicago" );
   tester( "America/New_York" );
+  tester( "America/Kentucky/Louisville" );
   tester( "Europe/London" );
   tester( "Europe/Paris" );
+  tester( "Asia/Muscat" );
+  tester( "Asia/Calcutta" );
   tester( "Asia/Shanghai" );
   tester( "Australia/Sydney" );
-  tester( "Asia/Calcutta" );
   tester( "GMT" );
   tester( "UTC" );
 
