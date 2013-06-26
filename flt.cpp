@@ -12,7 +12,7 @@ void die( const char* const msg )
   exit(-1);
 }
 
-void convert( const char*const label, tz &there, int year, int mon, int mday, int hour, int min )
+void convert( const char*const label, tz &there, int year, int mon, int mday, int hour, int min, const char* const local_time_zone )
 {
   struct tm there_tm = there.local_time();
   there_tm.tm_isdst = -1;
@@ -34,10 +34,9 @@ void convert( const char*const label, tz &there, int year, int mon, int mday, in
   struct tm local = here.convert_from_there_to_here();
   cout << "in " << local.tm_zone << " (current local timezone) time will be: " << asctime(&local);
 
-  const char* const reference = "America/Phoenix";
-  tz ref( reference );
+  tz ref( local_time_zone );
   ref.set_local_time( there_tm ); // Set the reference timezone to the same date we are interested in so daylight savings time is correct.
-  cout << " time difference (hours) from " << reference << " on " << there_tm.tm_year+1900 << '-' << setw(2) << setfill('0') << there_tm.tm_mon+1 << '-' << setw(2) << there_tm.tm_mday <<": " << setw(5) << setfill(' ') << (ref.time_diff( here )/3600.0) << "\n" << endl;
+  cout << " time difference (hours) from " << local_time_zone << " on " << there_tm.tm_year+1900 << '-' << setw(2) << setfill('0') << there_tm.tm_mon+1 << '-' << setw(2) << there_tm.tm_mday <<": " << setw(5) << setfill(' ') << (ref.time_diff( here )/3600.0) << "\n" << endl;
 }
 
 void calculate_flight(
@@ -48,10 +47,10 @@ void calculate_flight(
     const char* const local_time_zone
 ) {
   tz start( start_tz );
-  convert( label_start, start, start_year, start_mon, start_mday, start_hour, start_min );
+  convert( label_start, start, start_year, start_mon, start_mday, start_hour, start_min, local_time_zone );
 
   tz end( end_tz );
-  convert( label_end, end, end_year, end_mon, end_mday, end_hour, end_min );
+  convert( label_end, end, end_year, end_mon, end_mday, end_hour, end_min, local_time_zone );
 
   cout << " hours from " << label_start << " in " << start.tz_name() << " to " << label_end << " in " << end.tz_name() << ": " << setw(5) << (float)(end.duration( start )/3600.0) << "\n" << endl;
 }
