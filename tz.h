@@ -17,7 +17,7 @@ public:
 
   // accessors
   std::string tz_name() const { return m_tz_name; }
-  struct tm local_time() const { return m_local_time; }
+  struct tm local_time() { strcpy(m_local_time.tm_zone, m_tz_abbrev); return m_local_time; }
   bool dst_active() const;
   const char* time_format() const { return m_time_format; }
   struct tm convert_from_there_to_here() const;
@@ -54,6 +54,7 @@ protected:
   time_t m_gmt_secs;
   char* m_saved_old_tz_name;
   char* m_time_format; // for strftime.
+  char* m_tz_abbrev;
 
   void clear();
 
