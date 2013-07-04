@@ -2,6 +2,9 @@
 #include <iomanip>
 using namespace std;
 
+#include <stdlib.h>
+#include <stdio.h>
+
 #include <tz.h>
 
 void die( const char* const msg )

@@ -5,6 +5,7 @@
 #include <iostream>
 
 #include <time.h>
+#include <string.h>
 
 class tz
 {
