@@ -38,6 +38,7 @@ int main()
   tester( "Europe/London" );
   tester( "Europe/Paris" );
   //tester( "Europe/Zurich" );
+  tester( "Africa/Johannesburg" );
   tester( "Asia/Muscat" );
   //tester( "Asia/Calcutta" );
   //tester( "Asia/Shanghai" );
