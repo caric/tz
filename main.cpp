@@ -24,17 +24,26 @@ void tester( const char* const tz_str )
 int main()
 {
   tester( "Pacific/Honolulu" );
+  //tester( "America/Nome" );
+  //tester( "America/Anchorage" );
+  //tester( "America/Juneau" );
+  //tester( "America/Sitka" );
+  //tester( "America/Yakutat" );
   tester( "America/Los_Angeles" );
   tester( "America/Chicago" );
+  tester( "America/Caracas" );
+  //tester( "America/Montreal" );
   tester( "America/New_York" );
   tester( "America/Kentucky/Louisville" );
   tester( "Europe/London" );
   tester( "Europe/Paris" );
+  //tester( "Europe/Zurich" );
   tester( "Asia/Muscat" );
-  tester( "Asia/Calcutta" );
-  tester( "Asia/Shanghai" );
-  tester( "Australia/Sydney" );
-  tester( "GMT" );
+  //tester( "Asia/Calcutta" );
+  //tester( "Asia/Shanghai" );
+  //tester( "Australia/Sydney" );
+  //tester( "Zulu" );
+  //tester( "GMT" );
   tester( "UTC" );
 
   return 0;
