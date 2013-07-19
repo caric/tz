@@ -36,3 +36,8 @@ echo ==== fly from Burbank to Phoenix ====
           "land" "America/Phoenix" 2013 7 26 18 0 \
           "America/Phoenix"
 
+echo ==== later flight, 527, from Burbank to Phoenix ====
+  flt \
+          "takeoff" "America/Los_Angeles" 2013 7 26 20 10 \
+          "land" "America/Phoenix" 2013 7 26 21 35 \
+          "America/Phoenix"
