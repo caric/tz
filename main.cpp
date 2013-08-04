@@ -32,6 +32,7 @@ int main()
   tester( "America/Los_Angeles" );
   tester( "America/Chicago" );
   tester( "America/Caracas" );
+  tester( "America/Santiago" );
   //tester( "America/Montreal" );
   tester( "America/New_York" );
   tester( "America/Kentucky/Louisville" );
