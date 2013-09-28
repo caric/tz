@@ -20,13 +20,19 @@
 # Arrive in PHOENIX AZ (PHX) at 9:40 PM
 # Travel Time 8 hrs 15 mins
 
-echo ==== fly from Dayton To Denver ====
+echo ==== fly air tran 425 from Dayton To Denver ====
   flt \
           "takeoff" "America/New_York" 2013 10 13 16 25 \
           "land" "America/Denver" 2013 10 13 17 25 \
           "America/Phoenix"
 
-echo ==== fly from Denver To Phoenix ====
+echo ==== layover in Denver ====
+  flt \
+          "land" "America/Denver" 2013 10 13 17 25 \
+          "takeoff" "America/Denver" 2013 10 13 20 40 \
+          "America/Phoenix"
+
+echo ==== fly southwest 3247 from Denver To Phoenix ====
   flt \
           "takeoff" "America/Denver" 2013 10 13 20 40 \
           "land" "America/Phoenix" 2013 10 13 21 40 \
