@@ -159,6 +159,9 @@ void tz::now()
 //-----------------------------------------------------------------------------
 struct tm tz::convert_from_there_to_here() const
 {
+  // first, switch and restore timezone so tm_zone is set correctly.
+  switch_timezone();
+  restore_timezone();
   // convert from utc to localtime.
   struct tm local = *localtime( &m_gmt_secs );
   return local;
