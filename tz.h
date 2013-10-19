@@ -18,6 +18,7 @@ public:
 
   // accessors
   std::string tz_name() const { return m_tz_name; }
+  std::string tz_abbrev() const { return m_tz_abbrev; }
   struct tm local_time() { strcpy(m_local_time.tm_zone, m_tz_abbrev); return m_local_time; }
   bool dst_active() const;
   const char* time_format() const { return m_time_format; }
