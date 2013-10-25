@@ -46,6 +46,7 @@ int main()
   //tester( "Australia/Sydney" );
   //tester( "Zulu" );
   //tester( "GMT" );
+  tester( "Asia/Katmandu" );
   tester( "UTC" );
 
   return 0;
