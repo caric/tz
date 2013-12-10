@@ -1,0 +1,107 @@
+===== fly from chicago (ORD) to Los Angeles (LAX) American flt1617 ======
+takeoff
+America/Chicago: Tue Dec 17 18:25:00 CST 2013
+in MST (current local timezone) time will be: Tue Dec 17 17:25:00 2013
+ time difference (hours) from America/Phoenix on 2013-12-17:     1
+
+land
+America/Los_Angeles: Tue Dec 17 20:55:00 PST 2013
+in MST (current local timezone) time will be: Tue Dec 17 21:55:00 2013
+ time difference (hours) from America/Phoenix on 2013-12-17:    -1
+
+ hours from takeoff in America/Chicago to land in America/Los_Angeles:   4.5
+
+===== wait in Los Angeles ======
+land
+America/Los_Angeles: Tue Dec 17 20:55:00 PST 2013
+in MST (current local timezone) time will be: Tue Dec 17 21:55:00 2013
+ time difference (hours) from America/Phoenix on 2013-12-17:    -1
+
+takeoff
+America/Los_Angeles: Tue Dec 17 23:55:00 PST 2013
+in MST (current local timezone) time will be: Wed Dec 18 00:55:00 2013
+ time difference (hours) from America/Phoenix on 2013-12-17:    -1
+
+ hours from land in America/Los_Angeles to takeoff in America/Los_Angeles:     3
+
+==== fly from Los Angeles (LAX) to Sydney (SYD) Quantas flt7366 =====
+takeoff
+America/Los_Angeles: Tue Dec 17 23:55:00 PST 2013
+in MST (current local timezone) time will be: Wed Dec 18 00:55:00 2013
+ time difference (hours) from America/Phoenix on 2013-12-17:    -1
+
+land
+Australia/Sydney: Thu Dec 19  9:40:00 EST 2013
+in MST (current local timezone) time will be: Wed Dec 18 15:40:00 2013
+ time difference (hours) from America/Phoenix on 2013-12-19:    18
+
+ hours from takeoff in America/Los_Angeles to land in Australia/Sydney: 14.75
+
+=====================================================
+==== Christmas in Australia =========================
+=====================================================
+==== Fly from Sydney (SYD) to Melbourne (MEL) Quantas flt7341 =======
+takeoff
+Australia/Sydney: Sat Jan 04  8:00:00 EST 2014
+in MST (current local timezone) time will be: Fri Jan  3 14:00:00 2014
+ time difference (hours) from America/Phoenix on 2014-01-04:    18
+
+land
+Australia/Melbourne: Sat Jan 04  9:35:00 EST 2014
+in MST (current local timezone) time will be: Fri Jan  3 15:35:00 2014
+ time difference (hours) from America/Phoenix on 2014-01-04:    18
+
+ hours from takeoff in Australia/Sydney to land in Australia/Melbourne: 1.58333
+
+===== wait in Melbourne (MEL) ======
+land
+Australia/Melbourne: Sat Jan 04  9:35:00 EST 2014
+in MST (current local timezone) time will be: Fri Jan  3 15:35:00 2014
+ time difference (hours) from America/Phoenix on 2014-01-04:    18
+
+takeoff
+Australia/Melbourne: Sat Jan 04 11:20:00 EST 2014
+in MST (current local timezone) time will be: Fri Jan  3 17:20:00 2014
+ time difference (hours) from America/Phoenix on 2014-01-04:    18
+
+ hours from land in Australia/Melbourne to takeoff in Australia/Melbourne:  1.75
+
+===== fly from Melbourne (MEL) to Los Angeles (LAX) Quantas flt7349 ======
+takeoff
+Australia/Melbourne: Sat Jan 04 11:20:00 EST 2014
+in MST (current local timezone) time will be: Fri Jan  3 17:20:00 2014
+ time difference (hours) from America/Phoenix on 2014-01-04:    18
+
+land
+America/Los_Angeles: Sat Jan 04  6:40:00 PST 2014
+in MST (current local timezone) time will be: Sat Jan  4 07:40:00 2014
+ time difference (hours) from America/Phoenix on 2014-01-04:    -1
+
+ hours from takeoff in Australia/Melbourne to land in America/Los_Angeles: 14.3333
+
+===== wait in Los Angeles (LAX) ======
+land
+America/Los_Angeles: Sat Jan 04  6:40:00 PST 2014
+in MST (current local timezone) time will be: Sat Jan  4 07:40:00 2014
+ time difference (hours) from America/Phoenix on 2014-01-04:    -1
+
+takeoff
+America/Los_Angeles: Sat Jan 04  9:20:00 PST 2014
+in MST (current local timezone) time will be: Sat Jan  4 10:20:00 2014
+ time difference (hours) from America/Phoenix on 2014-01-04:    -1
+
+ hours from land in America/Los_Angeles to takeoff in America/Los_Angeles: 2.66667
+
+===== fly from Los Angeles (LAX) to Chicago (ORD) American flt1200 ======
+takeoff
+America/Los_Angeles: Sat Jan 04  9:20:00 PST 2014
+in MST (current local timezone) time will be: Sat Jan  4 10:20:00 2014
+ time difference (hours) from America/Phoenix on 2014-01-04:    -1
+
+land
+America/Chicago: Sat Jan 04 15:25:00 CST 2014
+in MST (current local timezone) time will be: Sat Jan  4 14:25:00 2014
+ time difference (hours) from America/Phoenix on 2014-01-04:     1
+
+ hours from takeoff in America/Los_Angeles to land in America/Chicago: 4.08333
+
