@@ -98,12 +98,12 @@ tz::~tz()
 }
 
 //-----------------------------------------------------------------------------
-std::ostream& operator<<( std::ostream& os, const tz& the_tz )
+std::ostream& operator<<( std::ostream& os, tz& the_tz )
 {
-  const struct tm t = the_tz.local_time();
+  struct tm t = the_tz.local_time();
   const int max_length = 128;
   char buf[max_length];
-  size_t length = strftime( buf, max_length, the_tz.time_format(), &(the_tz.local_time()) );
+  size_t length = strftime( buf, max_length, the_tz.time_format(), &t );
   os << buf;
   return os;
 }
@@ -157,7 +157,7 @@ void tz::now()
 }
 
 //-----------------------------------------------------------------------------
-struct tm tz::convert_from_there_to_here() const
+struct tm tz::convert_from_there_to_here()
 {
   // first, switch and restore timezone so tm_zone is set correctly.
   switch_timezone();

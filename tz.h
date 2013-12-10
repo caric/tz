@@ -22,7 +22,7 @@ public:
   struct tm local_time() { strcpy(m_local_time.tm_zone, m_tz_abbrev); return m_local_time; }
   bool dst_active() const;
   const char* time_format() const { return m_time_format; }
-  struct tm convert_from_there_to_here() const;
+  struct tm convert_from_there_to_here();
 
   // mutators
   void set_tz_name( const std::string& tz ) { m_tz_name = tz; }
@@ -65,9 +65,9 @@ protected:
 
 private:
 
-friend std::ostream& operator<<( std::ostream&, const tz&);
+friend std::ostream& operator<<( std::ostream&, tz&);
 };
 
-std::ostream& operator<<( std::ostream&, const tz&);
+std::ostream& operator<<( std::ostream&, tz&);
 
 #endif //  __TZ_H___
