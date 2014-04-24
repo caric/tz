@@ -107,7 +107,7 @@ echo ==== wait in DC ====
           "America/Phoenix"
 
 
-echo ==== fly from chicago to phoenix ====
+echo ==== fly from DC to phoenix ====
   flt \
           "takeoff" "America/New_York" 2014 7 13 18 35 \
           "land" "America/Phoenix" 2014 7 13 20 28 \
