@@ -115,7 +115,7 @@ in MST (current local timezone) time will be: Sun Jul 13 15:35:00 2014
 
  hours from land in America/New_York to takeoff in America/New_York: 12.3333
 
-==== fly from chicago to phoenix ====
+==== fly from DC to phoenix ====
 takeoff
 America/New_York: Sun Jul 13 18:35:00 EDT 2014
 in MST (current local timezone) time will be: Sun Jul 13 15:35:00 2014
