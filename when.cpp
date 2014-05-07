@@ -44,7 +44,7 @@ int day_of_the_week( const char *const arg )
 int main( int argc, char *argv[] )
 {
   if ( argc < 4 )
-    die( "tell the program the day and time you are interested in" );
+    die( "tell the program the day and time (future only) you are interested in" );
 
   tz there( argv[1] );
   struct tm there_time = there.local_time();
