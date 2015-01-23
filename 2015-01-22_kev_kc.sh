@@ -1,28 +1,23 @@
 #!/bin/bash
 
 
-# Adult Passenger(s)	Rapid Rewards #	Options
-# JAMES GEISS	00000387888270	Add EarlyBird Check-In
-# Subscribe to Flight Status Messaging
 # DEPART
-# JAN 23
-# FRI
-# 11:55 AM	Depart Phoenix, AZ (PHX) on Southwest Airlines 
-# 04:05 PM	Arrive in Nashville, TN (BNA)
+# JAN 24
+# SAT
+# 12:50 PM	Depart Phoenix, AZ (PHX) on Southwest Airlines 
+# 01:00 PM	Arrive in San Diego, CA (SAN)
 # Flight
-# #4558	Operated by Southwest
+# #2566	Operated by Southwest
 # 
-# Friday, January 23, 2015
+# Saturday, January 24, 2015
 # 
-# Travel Time 5 h 30 m 
+# Travel Time 5 h 10 m 
 # (1 stop, includes 1 plane change)
 # Wanna Get Away
-# 04:45 PM	Change connect, change plane to Southwest Airlines in Nashville, TN (BNA)
-# 06:25 PM	Arrive in Kansas City, MO (MCI)
+# 01:55 PM	Change connect, change plane to Southwest Airlines in San Diego, CA (SAN) 
+# 07:00 PM	Arrive in Kansas City, MO (MCI)
 # Flight
-# #188	Operated by Southwest
-# 
-# Wifi logoWiFi available
+#14	Operated by Southwest
 # RETURN
 # JAN 29
 # THU
@@ -37,25 +32,25 @@
 # (Nonstop)
 # Wanna Get Away
 # 
-echo ==== fly Southwest 4558 from Phoenix To Nashville \(BNA\) ====
+echo ==== fly Southwest 2566 from Phoenix To San diego \(SAN\) ====
   flt \
-          "takeoff" "America/Phoenix" 2015 1 23 11 55 \
-          "land" "America/Chicago" 2015 1 23 16 5 \
+          "takeoff" "America/Phoenix" 2015 1 24 12 50 \
+          "land" "America/Los_Angeles" 2015 1 24 13 0 \
           "America/Phoenix"
 
-echo ==== Wait in Nashville =====
+echo ==== Wait in San diego =====
   flt \
-          "land" "America/Chicago" 2015 1 23 16 5 \
-          "takeoff" "America/Chicago" 2015 1 23 16 45 \
+          "land" "America/Los_Angeles" 2015 1 24 13 0 \
+          "takeoff" "America/Los_Angeles" 2015 1 24 13 55 \
           "America/Phoenix"
 
-echo ==== fly Southwest 188 Nashville \(BNA\) to Kansas City \(MCI\) =====
+echo ==== fly Southwest 14 San diego \(SAN\) to Kansas City \(MCI\) =====
   flt \
-          "takeoff" "America/Chicago" 2015 1 23 16 45 \
-          "land" "America/Chicago" 2015 1 23 18 25 \
+          "takeoff" "America/Los_Angeles" 2015 1 24 13 55 \
+          "land" "America/Chicago" 2015 1 24 19 0 \
           "America/Phoenix"
 
-echo ==== fly Southwest 1045 Kansas City \(MCI\) to Nashville \(BNA\) =====
+echo ==== fly Southwest 1045 Kansas City \(MCI\) to Phoenix \(PHX\) =====
   flt \
           "takeoff" "America/Chicago" 2015 1 29 15 35 \
           "land" "America/Phoenix" 2015 1 29 17 30 \
