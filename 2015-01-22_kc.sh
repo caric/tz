@@ -19,6 +19,26 @@
 # Flight
 #14	Operated by Southwest
 # RETURN
+
+# RETURN
+# JAN 27
+# TUE
+# 12:35 PM	Depart Kansas City, MO (MCI) on Southwest Airlines
+# 02:10 PM	Arrive in San Diego, CA (SAN)
+# Flight
+# #302	Operated by Southwest
+# 
+# Tuesday, January 27, 2015
+# 
+# Travel Time 6 h 10 m 
+# (1 stop, includes 1 plane change)
+# Wanna Get Away
+# 03:35 PM	Change connect, change plane to Southwest Airlines in San Diego, CA (SAN) 
+# 05:45 PM	Arrive in Phoenix, AZ (PHX)
+# Flight
+# #4175	Operated by Southwest
+
+
 # JAN 29
 # THU
 # 03:35 PM	Depart Kansas City, MO (MCI) on Southwest Airlines 
@@ -50,7 +70,25 @@ echo ==== fly Southwest 14 San diego \(SAN\) to Kansas City \(MCI\) =====
           "land" "America/Chicago" 2015 1 24 19 0 \
           "America/Phoenix"
 
-echo ==== fly Southwest 1045 Kansas City \(MCI\) to Phoenix \(PHX\) =====
+echo ==== Joy fly Southwest 302 Kansas City \(MCI\) to San Diego \(SAN\) =====
+  flt \
+          "takeoff" "America/Chicago" 2015 1 27 12 35 \
+          "land" "America/Los_Angeles" 2015 1 27 14 10 \
+          "America/Phoenix"
+
+echo ==== Joy Wait in San diego =====
+  flt \
+          "land" "America/Los_Angeles" 2015 1 27 14 10 \
+          "takeoff" "America/Los_Angeles" 2015 1 27 15 35 \
+          "America/Phoenix"
+
+echo ==== Joy fly Southwest 4175 San Diego \(SAN\) to Phoenix \(PHX\) =====
+  flt \
+          "takeoff" "America/Los_Angeles" 2015 1 27 15 35 \
+          "land" "America/Phoenix" 2015 1 27 17 45 \
+          "America/Phoenix"
+
+echo ==== Kevin fly Southwest 1045 Kansas City \(MCI\) to Phoenix \(PHX\) =====
   flt \
           "takeoff" "America/Chicago" 2015 1 29 15 35 \
           "land" "America/Phoenix" 2015 1 29 17 30 \
