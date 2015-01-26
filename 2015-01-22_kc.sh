@@ -21,37 +21,23 @@
 # RETURN
 
 # RETURN
-# JAN 27
-# TUE
-# 12:35 PM	Depart Kansas City, MO (MCI) on Southwest Airlines
-# 02:10 PM	Arrive in San Diego, CA (SAN)
+# JAN 28
+# WED
+# 04:30 PM	Depart Kansas City, MO (MCI) on Southwest Airlines 
+# 05:40 PM	Arrive in Albuquerque, NM (ABQ)
 # Flight
-# #302	Operated by Southwest
+# #546	Operated by Southwest
 # 
-# Tuesday, January 27, 2015
+# Wednesday, January 28, 2015
 # 
-# Travel Time 6 h 10 m 
+# Travel Time 4 h 35 m 
 # (1 stop, includes 1 plane change)
-# Wanna Get Away
-# 03:35 PM	Change connect, change plane to Southwest Airlines in San Diego, CA (SAN) 
-# 05:45 PM	Arrive in Phoenix, AZ (PHX)
+# Business Select
+# 06:50 PM	Change connect, change plane to Southwest Airlines in Albuquerque, NM (ABQ) 
+# 08:05 PM	Arrive in Phoenix, AZ (PHX)
 # Flight
-# #4175	Operated by Southwest
+# #870	Operated by Southwest
 
-
-# JAN 29
-# THU
-# 03:35 PM	Depart Kansas City, MO (MCI) on Southwest Airlines 
-# 05:30 PM	Arrive in Phoenix, AZ (PHX)
-# Flight
-# #1045	Operated by Southwest
-# 
-# Thursday, January 29, 2015
-# 
-# Travel Time 2 h 55 m 
-# (Nonstop)
-# Wanna Get Away
-# 
 echo ==== fly Southwest 2566 from Phoenix To San diego \(SAN\) ====
   flt \
           "takeoff" "America/Phoenix" 2015 1 24 12 50 \
@@ -70,27 +56,24 @@ echo ==== fly Southwest 14 San diego \(SAN\) to Kansas City \(MCI\) =====
           "land" "America/Chicago" 2015 1 24 19 0 \
           "America/Phoenix"
 
-echo ==== Joy fly Southwest 302 Kansas City \(MCI\) to San Diego \(SAN\) =====
+echo ==== RETURN ====
+echo ==== RETURN ====
+echo ==== RETURN ====
+
+echo ==== fly Southwest 546 Kansas City \(MCI\) to Albuquerque \(ABQ\) =====
   flt \
-          "takeoff" "America/Chicago" 2015 1 27 12 35 \
-          "land" "America/Los_Angeles" 2015 1 27 14 10 \
+          "takeoff" "America/Chicago" 2015 1 28 16 30 \
+          "land" "America/Denver" 2015 1 28 17 40 \
           "America/Phoenix"
 
-echo ==== Joy Wait in San diego =====
+echo ==== Wait in Albuquerque =====
   flt \
-          "land" "America/Los_Angeles" 2015 1 27 14 10 \
-          "takeoff" "America/Los_Angeles" 2015 1 27 15 35 \
+          "land" "America/Denver" 2015 1 28 17 40 \
+          "takeoff" "America/Denver" 2015 1 28 18 50 \
           "America/Phoenix"
 
 echo ==== Joy fly Southwest 4175 San Diego \(SAN\) to Phoenix \(PHX\) =====
   flt \
-          "takeoff" "America/Los_Angeles" 2015 1 27 15 35 \
-          "land" "America/Phoenix" 2015 1 27 17 45 \
+          "takeoff" "America/Denver" 2015 1 28 18 50 \
+          "land" "America/Phoenix" 2015 1 28 20 5 \
           "America/Phoenix"
-
-echo ==== Kevin fly Southwest 1045 Kansas City \(MCI\) to Phoenix \(PHX\) =====
-  flt \
-          "takeoff" "America/Chicago" 2015 1 29 15 35 \
-          "land" "America/Phoenix" 2015 1 29 17 30 \
-          "America/Phoenix"
-
