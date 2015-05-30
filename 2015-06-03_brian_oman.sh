@@ -37,7 +37,7 @@
 # Oman Air  901
 # Economy / Coach (N) | Confirm seats with the airline *
 
-echo ===== fly from phoenix to Detroit \(DTW\) ======
+echo ===== fly from phoenix to Detroit \(DTW\) Delta 134 ======
   flt \
           "takeoff" "America/Phoenix" 2015 6 3 9 54 \
           "land" "America/New_York" 2015 6 3 16 39 \
@@ -49,7 +49,7 @@ echo ===== wait in Detroit ======
           "takeoff" "America/New_York" 2015 6 3 18 28 \
           "America/Phoenix"
 
-echo ==== fly from Detroit to Amsterdam AMS =====
+echo ==== fly from Detroit to Amsterdam AMS Delta 134 =====
   flt \
           "takeoff" "America/New_York" 2015 6 3 18 28 \
           "land" "Europe/Amsterdam" 2015 6 4 8 5 \
@@ -61,7 +61,7 @@ echo ==== wait in Amsterdam ====
           "takeoff" "Europe/Amsterdam" 2015 6 4 10 15 \
           "America/Phoenix"
 
-echo ==== fly from amsterdam to Doha Qatar DOH ====
+echo ==== fly from amsterdam to Doha Qatar DOH KLM 441 ====
   flt \
           "takeoff" "Europe/Amsterdam" 2015 6 4 10 15 \
           "land" "Asia/Qatar" 2015 6 4 17 40 \
@@ -73,7 +73,7 @@ echo ==== wait in Doha ====
           "takeoff" "Asia/Qatar" 2015 6 4 18 25 \
           "America/Phoenix"
 
-echo ==== fly from Doha Qatar to Muscat MCT ====
+echo ==== fly from Doha Qatar to Muscat MCT KLM 441 ====
   flt \
           "takeoff" "Asia/Qatar" 2015 6 4 18 25 \
           "land" "Asia/Muscat" 2015 6 4 21 5 \
@@ -85,7 +85,7 @@ echo ==== wait in Muscat ====
           "takeoff" "Asia/Muscat" 2015 6 5 2 15 \
           "America/Phoenix"
 
-echo ==== fly from muscat to salalah  ====
+echo ==== fly from muscat to salalah Oman Air 901 ====
   flt \
           "takeoff" "Asia/Muscat" 2015 6 5 2 15 \
           "land" "Asia/Muscat" 2015 6 5 4 0 \
@@ -121,7 +121,7 @@ echo ==== fly from muscat to salalah  ====
 # Economy / Coach (U) | Confirm seats with the airline *
 # 
 
-echo ==== fly from Salalah to Dubai  ====
+echo ==== fly from Salalah to Dubai Oman Air 617 ====
   flt \
           "takeoff" "Asia/Muscat" 2015 6 25 16 50 \
           "land" "Asia/Dubai" 2015 6 25 18 40 \
@@ -133,7 +133,7 @@ echo ==== wait in Dubai ====
           "takeoff" "Asia/Dubai" 2015 6 25 22 20 \
           "America/Phoenix"
 
-echo ==== fly from dubai to atlanta ====
+echo ==== fly from dubai to atlanta Delta 7 ====
   flt \
           "takeoff" "Asia/Dubai" 2015 6 25 22 20 \
           "land" "America/New_York" 2015 6 26 6 13 \
@@ -145,7 +145,7 @@ echo ==== wait in atlanta ====
           "takeoff" "America/New_York" 2015 6 26 8 21 \
           "America/Phoenix"
 
-echo ==== fly from atlanta to phoenix ====
+echo ==== fly from atlanta to phoenix Delta 1546 ====
   flt \
           "takeoff" "America/New_York" 2015 6 26 8 21 \
           "land" "America/Phoenix" 2015 6 26 9 10 \
