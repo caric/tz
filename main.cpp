@@ -34,6 +34,7 @@ int main()
   tester( "America/Caracas" );
   tester( "America/Santiago" );
   //tester( "America/Montreal" );
+  tester( "America/Indiana/Knox" ); // Covers Saint John, IN where chris & Deb live
   tester( "America/New_York" );
   tester( "America/Kentucky/Louisville" );
   tester( "Europe/London" );
