@@ -1,0 +1,29 @@
+===== fly from chicago (ORD) to London Heathrow British Airways fltBA0296 ======
+takeoff
+America/Chicago: Fri Apr 11 20:20:00 CDT 2014
+in MST (current local timezone) time will be: Fri Apr 11 18:20:00 2014
+ time difference (hours) from America/Phoenix on 2014-04-11:     2
+
+land
+Europe/London: Sat Apr 12 10:00:00 BST 2014
+in MST (current local timezone) time will be: Sat Apr 12 02:00:00 2014
+ time difference (hours) from America/Phoenix on 2014-04-12:     8
+
+ hours from takeoff in America/Chicago to land in Europe/London: 7.66667
+
+=====================================================
+==== Holiday in London ==============================
+=====================================================
+===== fly from London to Chicago (ORD) British Airways fltBA0297 ======
+takeoff
+Europe/London: Sun Apr 20 15:50:00 BST 2014
+in MST (current local timezone) time will be: Sun Apr 20 07:50:00 2014
+ time difference (hours) from America/Phoenix on 2014-04-20:     8
+
+land
+America/Chicago: Sun Apr 20 18:25:00 CDT 2014
+in MST (current local timezone) time will be: Sun Apr 20 16:25:00 2014
+ time difference (hours) from America/Phoenix on 2014-04-20:     2
+
+ hours from takeoff in Europe/London to land in America/Chicago: 8.58333
+

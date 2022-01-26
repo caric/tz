@@ -44,7 +44,7 @@ int main()
   tester( "Asia/Muscat" );
   //tester( "Asia/Calcutta" );
   //tester( "Asia/Shanghai" );
-  //tester( "Australia/Sydney" );
+  tester( "Australia/Sydney" );
   //tester( "Zulu" );
   //tester( "GMT" );
   tester( "Asia/Katmandu" );
